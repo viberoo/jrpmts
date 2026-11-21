@@ -10,7 +10,9 @@
   --font-head:'Poppins',system-ui,sans-serif; --font-body:'Figtree',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+section,article,footer,header{scroll-margin-top:96px}
+h1[id],h2[id],h3[id]{scroll-margin-top:110px}
 body{font-family:var(--font-body);color:var(--ink);background:var(--white);line-height:1.65;font-size:17px}
 img{max-width:100%;display:block}
 a{color:var(--navy);text-decoration:none}
@@ -37,12 +39,13 @@ p{margin:.6em 0}
 .topbar a{color:#fff;font-weight:600}
 .topbar a:hover{color:var(--gold)}
 header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.navwrap{display:flex;align-items:center;gap:18px;padding:12px 22px;max-width:1240px;margin:0 auto}
-.brand img{height:52px;width:auto}
-nav.main{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap}
-nav.main a{font-family:var(--font-head);font-weight:600;font-size:.92rem;color:var(--navy-deep);padding:9px 11px;border-radius:10px}
+.navwrap{display:flex;align-items:center;gap:14px;padding:12px 22px;max-width:1420px;margin:0 auto;flex-wrap:nowrap}
+.brand{flex-shrink:0}
+.brand img{height:48px;width:auto}
+nav.main{margin-left:auto;display:flex;gap:2px;flex-wrap:nowrap}
+nav.main a{font-family:var(--font-head);font-weight:600;font-size:.88rem;color:var(--navy-deep);padding:9px 8px;border-radius:10px;white-space:nowrap}
 nav.main a:hover,nav.main a.active{background:var(--sky-soft);color:var(--navy)}
-.btn{display:inline-block;font-family:var(--font-head);font-weight:600;padding:13px 26px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn{display:inline-block;font-family:var(--font-head);font-weight:600;padding:13px 26px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;white-space:nowrap}
 .btn:hover{transform:translateY(-2px)}
 .btn-gold{background:var(--gold);color:var(--navy-deep);box-shadow:0 10px 24px rgba(245,184,29,.4)}
 .btn-gold:hover{background:#ffc93a;color:var(--navy-deep)}
@@ -51,13 +54,40 @@ nav.main a:hover,nav.main a.active{background:var(--sky-soft);color:var(--navy)}
 .btn-outline{border-color:var(--gold);color:var(--gold)}
 .btn-outline:hover{background:var(--gold);color:var(--navy-deep)}
 .btn-light{background:#fff;color:var(--navy-deep)}
-.nav-cta{display:flex;gap:10px;align-items:center}
+.nav-cta{display:flex;gap:10px;align-items:center;flex-shrink:0}
 .nav-cta .phone{font-family:var(--font-head);font-weight:700;color:var(--navy-deep);white-space:nowrap}
-.menu-btn{display:none;margin-left:auto;background:var(--navy);color:#fff;border:0;border-radius:10px;padding:10px 14px;font-family:var(--font-head);font-weight:600;cursor:pointer}
+.nav-cta .btn{padding:11px 20px}
+.menu-btn{display:none;margin-left:auto;background:var(--navy);color:#fff;border:0;border-radius:10px;padding:10px 14px;font-family:var(--font-head);font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0}
+.menu-btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media (max-width:1500px){.nav-cta .phone{display:none}}
 
 /* ---------- hero ---------- */
 .hero{position:relative;overflow:hidden;background:radial-gradient(1000px 500px at 85% -10%,#274b8a 0%,transparent 60%),linear-gradient(150deg,var(--navy-deep) 0%,var(--navy-2) 55%,#0e2a52 100%);color:#fff}
-.hero canvas#hero3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero canvas#hero3d{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+/* Pure-CSS 3D fallback: floating gold shapes that animate with no JS and
+   no WebGL, so the hero never sits flat again. The Three.js canvas paints
+   over this layer when WebGL works; when it doesn't, this still moves. */
+.hero-3d-fallback{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;perspective:900px}
+.hero-3d-fallback i{position:absolute;display:block;transform-style:preserve-3d}
+.hf-ring{width:120px;height:120px;border-radius:50%;border:4px solid rgba(245,184,29,.85);box-shadow:0 0 34px rgba(245,184,29,.35),inset 0 0 24px rgba(245,184,29,.25)}
+.hf-ring.blue{border-color:rgba(31,138,203,.8);box-shadow:0 0 34px rgba(31,138,203,.35),inset 0 0 24px rgba(31,138,203,.25)}
+.hf-ring.small{width:64px;height:64px;border-width:3px}
+.hf-diamond{width:56px;height:56px;background:linear-gradient(135deg,#f7c948,var(--gold-deep));clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);box-shadow:0 0 30px rgba(245,184,29,.45)}
+.hf-diamond.blue{background:linear-gradient(135deg,#4aa8dd,var(--blue))}
+.hf-diamond.white{background:linear-gradient(135deg,#fff,#cdd9ec);width:34px;height:34px}
+.hf-dot{width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px rgba(245,184,29,.8)}
+.hf-dot.gold{width:10px;height:10px;background:#ffe9a8}
+.hero-3d-fallback i:nth-child(1){top:12%;right:6%;animation:hf-float 7s ease-in-out infinite}
+.hero-3d-fallback i:nth-child(2){top:58%;right:14%;animation:hf-spin 9s ease-in-out infinite}
+.hero-3d-fallback i:nth-child(3){top:8%;left:44%;animation:hf-float 8s ease-in-out 1s infinite}
+.hero-3d-fallback i:nth-child(4){top:22%;right:26%;animation:hf-bob 5s ease-in-out infinite}
+.hero-3d-fallback i:nth-child(5){bottom:10%;right:4%;animation:hf-spin 11s ease-in-out .6s infinite}
+.hero-3d-fallback i:nth-child(6){bottom:16%;left:46%;animation:hf-float 6.5s ease-in-out .4s infinite}
+.hero-3d-fallback i:nth-child(7){top:44%;left:40%;animation:hf-bob 4.5s ease-in-out .8s infinite}
+.hero-3d-fallback i:nth-child(8){top:70%;left:52%;animation:hf-spin 10s ease-in-out 1.4s infinite}
+@keyframes hf-float{0%,100%{transform:translateY(0) rotateX(0deg) rotateY(0deg)}50%{transform:translateY(-22px) rotateX(24deg) rotateY(32deg)}}
+@keyframes hf-spin{0%,100%{transform:translateY(0) rotateZ(0deg) rotateY(0deg)}50%{transform:translateY(-16px) rotateZ(140deg) rotateY(180deg)}}
+@keyframes hf-bob{0%,100%{transform:translateY(0) translateZ(0);opacity:.9}50%{transform:translateY(-28px) translateZ(60px);opacity:1}}
 .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-top:90px;padding-bottom:90px}
 .hero h1{color:#fff}
 .hero h1 .gold{color:var(--gold)}
@@ -111,7 +141,10 @@ nav.main a:hover,nav.main a.active{background:var(--sky-soft);color:var(--navy)}
 .numsteps .card{counter-increment:step;padding-top:34px}
 .numsteps .card::before{content:counter(step);position:absolute;top:-20px;left:24px;width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--navy-deep);font-family:var(--font-head);font-weight:700;font-size:1.2rem;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(245,184,29,.45)}
 
-/* ---------- testimonials ---------- */
+/* Team photos: source headshots are square with the face filling the
+   frame, so a fixed-height cover crop cut foreheads off. Keep the full
+   square (no crop) and anchor on the face. */
+.team-photo{width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;object-position:center 8%;border-radius:14px;margin-bottom:14px;display:block}
 .quote{background:var(--navy-deep);color:#fff;border-radius:var(--radius);padding:30px;position:relative;overflow:hidden}
 .quote::before{content:"“";position:absolute;top:-8px;right:18px;font-size:7rem;color:rgba(245,184,29,.25);font-family:Georgia,serif}
 .quote p{color:#e6edf8;font-size:1.02rem}
@@ -127,7 +160,7 @@ nav.main a:hover,nav.main a.active{background:var(--sky-soft);color:var(--navy)}
 .partner-strip img{max-height:44px;width:auto;opacity:.85;filter:grayscale(20%)}
 .partner-strip img:hover{opacity:1;filter:none}
 .badges{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
-.badges img{max-height:56px;width:auto}
+.badges img{max-height:56px;width:auto;background:#fff;border-radius:10px;padding:8px 12px}
 
 /* ---------- forms / contact ---------- */
 .form-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 6px 22px rgba(10,25,48,.06)}
@@ -162,19 +195,23 @@ footer.site li{padding:4px 0}
 /* ---------- reveal / motion ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero canvas#hero3d{display:none}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero canvas#hero3d{display:none}.hero-3d-fallback{display:none}}
 
 /* ---------- responsive ---------- */
+@media (max-width:1280px){
+  /* Ten nav links + brand + CTA cannot fit one row below ~1280px, so the
+     hamburger takes over here instead of letting links wrap to a 2nd row. */
+  nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;flex-wrap:nowrap;padding:14px 22px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  nav.main.open{display:flex}
+  nav.main a{font-size:1rem;padding:11px 10px}
+  .menu-btn{display:block}
+}
 @media (max-width:960px){
   .hero .wrap{grid-template-columns:1fr;padding-top:64px;padding-bottom:64px}
   .grid.c3,.grid.c4{grid-template-columns:repeat(2,1fr)}
   .split{grid-template-columns:1fr;gap:28px}
   .foot-grid{grid-template-columns:1fr 1fr}
   .logo-grid{grid-template-columns:repeat(3,1fr)}
-  nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:14px 22px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
-  nav.main.open{display:flex}
-  .menu-btn{display:block}
-  .nav-cta .phone{display:none}
 }
 @media (max-width:600px){
   .grid.c2,.grid.c3,.grid.c4{grid-template-columns:1fr}
@@ -182,4 +219,5 @@ footer.site li{padding:4px 0}
   .section{padding:60px 0}
   .foot-grid{grid-template-columns:1fr}
   .brand img{height:44px}
+  .nav-cta{display:none}
 }

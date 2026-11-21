@@ -11,6 +11,27 @@
       nav.classList.toggle("open");
       btn.setAttribute("aria-expanded", nav.classList.contains("open") ? "true" : "false");
     });
+    /* Close the menu once a link is chosen, on Escape, and when the
+       viewport widens back past the hamburger breakpoint. */
+    nav.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        nav.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      });
+    });
+    document.addEventListener("keydown", function (ev) {
+      if (ev.key === "Escape" && nav.classList.contains("open")) {
+        nav.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.focus();
+      }
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 1280 && nav.classList.contains("open")) {
+        nav.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
   }
 
   /* Scroll reveal */
@@ -43,8 +64,12 @@
   }
 
   /* Hero 3D — Three.js floating shapes + particles, mouse parallax.
-     Everything is decorative; if WebGL or the CDN fails, the CSS
-     gradient hero underneath remains fully readable. */
+     THREE comes from the vendored /vendor/three.min.js (deferred <script>
+     in <head>, ordered before this file); the CDN below is only a fallback
+     if the local copy fails. If WebGL itself is unavailable
+     (headless/GPU-blocked browser), WebGLRenderer throws and we return —
+     the pure-CSS .hero-3d-fallback shapes keep animating, so the hero
+     never sits flat. The CSS gradient underneath stays readable either way. */
   var canvas = document.getElementById("hero3d");
   if (!canvas || reduced) return;
   function initHero() {
@@ -109,6 +134,7 @@
       camera.aspect = w / h; camera.updateProjectionMatrix();
     }
     window.addEventListener("resize", resize); resize();
+    window.addEventListener("load", resize);
 
     var t = 0, running = true;
     document.addEventListener("visibilitychange", function () { running = !document.hidden; });
@@ -129,10 +155,11 @@
   }
   if (typeof THREE !== "undefined") { initHero(); }
   else {
+    /* Vendored copy failed to load — last resort is the CDN. If that
+       fails too, the CSS fallback shapes are still animating. */
     var s = document.createElement("script");
     s.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js";
     s.onload = initHero;
-    s.onerror = function () { if (canvas) canvas.style.display = "none"; };
     document.head.appendChild(s);
   }
 
