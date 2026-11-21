@@ -191,6 +191,15 @@ footer.site li{padding:4px 0}
 .social{display:flex;gap:10px;margin-top:14px}
 .social a{display:inline-flex;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.1);align-items:center;justify-content:center;color:#fff;font-weight:700}
 .social a:hover{background:var(--gold);color:var(--navy-deep)}
+/* Social media bar (header topbar + footer) — brand colors */
+.social-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.social-bar>span{font-weight:600}
+.social-bar a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;color:#fff;font-family:var(--font-head);font-weight:600;font-size:.85rem;white-space:nowrap}
+.social-bar a.fb{background:#1877f2}
+.social-bar a.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.social-bar a:hover{transform:translateY(-2px);color:#fff;filter:brightness(1.08)}
+footer .social-bar{margin-top:14px}
+footer .social-bar a{padding:9px 18px;font-size:.95rem}
 
 /* ---------- reveal / motion ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
