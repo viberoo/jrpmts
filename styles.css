@@ -197,6 +197,7 @@ footer.site li{padding:4px 0}
 .social-bar a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;color:#fff;font-family:var(--font-head);font-weight:600;font-size:.85rem;white-space:nowrap}
 .social-bar a.fb{background:#1877f2}
 .social-bar a.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.social-bar a.li{background:#0a66c2}
 .social-bar a:hover{transform:translateY(-2px);color:#fff;filter:brightness(1.08)}
 footer .social-bar{margin-top:14px;flex-wrap:nowrap}
 footer .social-bar>span{display:none}
