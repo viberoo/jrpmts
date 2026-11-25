@@ -253,13 +253,13 @@ footer .social-bar a{padding:9px 14px;font-size:.9rem}
   .pagehero{padding:52px 0 46px}
   /* Footer badges on mobile: the three member seals were stacking one per
      row (3 rows). Two-column grid instead — label on its own row, then the
-     icons in 2 rows: BBB + Chamber side by side, OK Certified full-width
-     underneath (it is a very wide 7.4:1 image, so it needs the full width
-     to stay readable). */
+     icons in 2 rows: OK Certified full-width on top (it is a very wide
+     7.4:1 image, so it needs the full width to stay readable), BBB +
+     Chamber side by side underneath. */
   .badges{display:grid;grid-template-columns:1fr 1fr;gap:14px;justify-items:center}
   .badges>span{grid-column:1/-1;grid-row:1;justify-self:start}
   .badges img{max-width:100%;max-height:64px}
-  .badges img:nth-child(2){grid-column:1;grid-row:2}
-  .badges img:nth-child(4){grid-column:2;grid-row:2}
-  .badges img:nth-child(3){grid-column:1/-1;grid-row:3}
+  .badges img:nth-child(3){grid-column:1/-1;grid-row:2}
+  .badges img:nth-child(2){grid-column:1;grid-row:3}
+  .badges img:nth-child(4){grid-column:2;grid-row:3}
 }
