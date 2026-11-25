@@ -157,6 +157,7 @@ nav.main a:hover,nav.main a.active{background:var(--sky-soft);color:var(--navy)}
 .logo-cell img{max-height:64px;width:auto;object-fit:contain}
 .logo-cell span{font-family:var(--font-head);font-weight:600;color:var(--navy-deep);text-align:center}
 .partner-strip{display:flex;gap:26px;flex-wrap:wrap;align-items:center;justify-content:center}
+.partner-strip a{display:inline-flex;align-items:center}
 .partner-strip img{max-height:44px;width:auto;opacity:.85;filter:grayscale(20%)}
 .partner-strip img:hover{opacity:1;filter:none}
 .badges{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
