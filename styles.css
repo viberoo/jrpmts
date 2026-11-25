@@ -63,7 +63,7 @@ nav.main a:hover,nav.main a.active{background:var(--sky-soft);color:var(--navy)}
 
 /* ---------- hero ---------- */
 .hero{position:relative;overflow:hidden;background:radial-gradient(1000px 500px at 85% -10%,#274b8a 0%,transparent 60%),linear-gradient(150deg,var(--navy-deep) 0%,var(--navy-2) 55%,#0e2a52 100%);color:#fff}
-.hero canvas#hero3d{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+.hero canvas.hero3d,.pagehero canvas.hero3d{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
 /* Pure-CSS 3D fallback: floating gold shapes that animate with no JS and
    no WebGL, so the hero never sits flat again. The Three.js canvas paints
    over this layer when WebGL works; when it doesn't, this still moves. */
@@ -108,6 +108,8 @@ nav.main a:hover,nav.main a.active{background:var(--sky-soft);color:var(--navy)}
 /* ---------- page hero (inner pages) ---------- */
 .pagehero{position:relative;overflow:hidden;background:linear-gradient(140deg,var(--navy-deep),var(--navy-2));color:#fff;padding:74px 0 66px}
 .pagehero::after{content:"";position:absolute;right:-60px;top:-60px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(245,184,29,.35),transparent 70%)}
+.pagehero .wrap{position:relative;z-index:2}
+.pagehero .hero-3d-fallback{opacity:.8}
 .pagehero h1{color:#fff}
 .pagehero p{color:#d5e0f2;max-width:720px}
 .pagehero .crumbs{font-size:.85rem;color:#9db1d0;margin-bottom:12px}
@@ -126,6 +128,16 @@ nav.main a:hover,nav.main a.active{background:var(--sky-soft);color:var(--navy)}
 .card .icon.gold{background:linear-gradient(135deg,#f7c948,var(--gold-deep))}
 .card .thumb{border-radius:14px;overflow:hidden;margin-bottom:16px}
 .card .thumb img{width:100%;height:170px;object-fit:cover}
+/* Icon thumbs: the original service icons are white line art made for dark
+   backgrounds — on a white card they vanish. Give them a navy tile and
+   show the icon contained, never stretched. */
+.card .thumb.icon{background:linear-gradient(135deg,var(--navy),var(--navy-deep))}
+.card .thumb.icon img{object-fit:contain;padding:26px}
+/* Navy tile for white line icons used inline (About values, Web Design). */
+.icon-tile{display:inline-flex;align-items:center;justify-content:center;width:84px;height:84px;border-radius:18px;background:linear-gradient(135deg,var(--navy),var(--navy-deep));margin-bottom:14px}
+.icon-tile img{width:56px;height:56px;object-fit:contain}
+.icon-tile.large{display:flex;width:100%;min-height:300px;border-radius:18px;margin-bottom:0}
+.icon-tile.large img{width:150px;height:150px}
 .tilt{transform-style:preserve-3d;will-change:transform}
 .tilt .inner{transform:translateZ(28px)}
 .pill{display:inline-block;font-size:.78rem;font-weight:700;font-family:var(--font-head);letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:var(--gold-soft);border-radius:999px;padding:5px 12px}
@@ -207,7 +219,7 @@ footer .social-bar a{padding:9px 14px;font-size:.9rem}
 /* ---------- reveal / motion ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero canvas#hero3d{display:none}.hero-3d-fallback{display:none}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero canvas.hero3d,.pagehero canvas.hero3d{display:none}.hero-3d-fallback{display:none}}
 
 /* ---------- responsive ---------- */
 @media (max-width:1280px){
@@ -232,4 +244,14 @@ footer .social-bar a{padding:9px 14px;font-size:.9rem}
   .foot-grid{grid-template-columns:1fr}
   .brand img{height:44px}
   .nav-cta{display:none}
+  /* Mobile header: the topbar was eating half the screen (address, hours,
+     and three social pills stacked). Keep just phone/email and compact
+     social pills — address and hours live in the footer. */
+  .topbar{font-size:.8rem}
+  .topbar .wrap{gap:6px;padding-top:6px;padding-bottom:6px}
+  .topbar .tb-addr,.topbar .tb-hours{display:none}
+  .topbar .social-bar{gap:6px}
+  .topbar .social-bar>span{display:none}
+  .topbar .social-bar a{padding:4px 11px;font-size:.78rem}
+  .pagehero{padding:52px 0 46px}
 }

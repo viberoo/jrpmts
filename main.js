@@ -70,9 +70,19 @@
      (headless/GPU-blocked browser), WebGLRenderer throws and we return —
      the pure-CSS .hero-3d-fallback shapes keep animating, so the hero
      never sits flat. The CSS gradient underneath stays readable either way. */
-  var canvas = document.getElementById("hero3d");
-  if (!canvas || reduced) return;
-  function initHero() {
+  /* Every page carries a 3D hero now — the home hero plus the compact
+     pagehero canvas on inner pages — so initialise one scene per canvas. */
+  var canvases = document.querySelectorAll("canvas.hero3d");
+  /* Guard, not a return: the contact-form handler below must still run
+     on pages without a hero canvas (and for reduced-motion users). The
+     old early return silently skipped it on every inner page. */
+  if (canvases.length && !reduced) {
+  var mx = 0, my = 0;
+  window.addEventListener("pointermove", function (ev) {
+    mx = (ev.clientX / window.innerWidth - 0.5);
+    my = (ev.clientY / window.innerHeight - 0.5);
+  }, { passive: true });
+  function initHero(canvas) {
     if (typeof THREE === "undefined") return;
     var renderer;
     try {
@@ -120,12 +130,6 @@
     var dir = new THREE.DirectionalLight(0xffffff, 1.1); dir.position.set(5, 6, 8); scene.add(dir);
     var goldLight = new THREE.PointLight(0xf5b81d, 12, 20); goldLight.position.set(-4, 2, 3); scene.add(goldLight);
 
-    var mx = 0, my = 0;
-    window.addEventListener("pointermove", function (ev) {
-      mx = (ev.clientX / window.innerWidth - 0.5);
-      my = (ev.clientY / window.innerHeight - 0.5);
-    }, { passive: true });
-
     function resize() {
       var w = canvas.clientWidth || canvas.parentElement.clientWidth;
       var h = canvas.clientHeight || canvas.parentElement.clientHeight;
@@ -153,15 +157,19 @@
       renderer.render(scene, camera);
     })();
   }
-  if (typeof THREE !== "undefined") { initHero(); }
+  function initAll() {
+    canvases.forEach(function (c) { initHero(c); });
+  }
+  if (typeof THREE !== "undefined") { initAll(); }
   else {
     /* Vendored copy failed to load — last resort is the CDN. If that
        fails too, the CSS fallback shapes are still animating. */
     var s = document.createElement("script");
     s.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js";
-    s.onload = initHero;
+    s.onload = initAll;
     document.head.appendChild(s);
   }
+  } /* end hero-3D guard */
 
   /* Contact form -> opens the visitor's email client addressed to JRPMTS
      (static site has no WordPress form backend). */

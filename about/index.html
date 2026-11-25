@@ -29,13 +29,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<script src="/vendor/three.min.js" defer></script>
 <script src="/main.js" defer></script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-<span>📍 901 S Main St Ste 44, Stillwater, OK 74074</span>
-<span><a href="tel:+14057430337">(405) 743-0337</a> &nbsp;·&nbsp; <a href="mailto:info@jrpmts.com">info@jrpmts.com</a></span>
-<span>Mon–Fri 9:00 AM–5:00 PM · Weekends by Appointment</span>
+<span class="tb-addr">📍 901 S Main St Ste 44, Stillwater, OK 74074</span>
+<span class="tb-contact"><a href="tel:+14057430337">(405) 743-0337</a> &nbsp;·&nbsp; <a href="mailto:info@jrpmts.com">info@jrpmts.com</a></span>
+<span class="tb-hours">Mon–Fri 9:00 AM–5:00 PM · Weekends by Appointment</span>
 <span class="social-bar"><span>Follow us:</span><a class="fb" href="https://www.facebook.com/jrpmts" aria-label="JRPMTS on Facebook" target="_blank" rel="noopener">Facebook</a><a class="ig" href="https://www.instagram.com/jrpmts" aria-label="JRPMTS on Instagram" target="_blank" rel="noopener">Instagram</a><a class="li" href="https://www.linkedin.com/company/104409253/" aria-label="JRPMTS on LinkedIn" target="_blank" rel="noopener">LinkedIn</a></span>
 </div></div>
 <header class="site"><div class="navwrap">
@@ -55,7 +56,7 @@
 </nav>
 <div class="nav-cta"><a class="phone" href="tel:+14057430337">(405) 743-0337</a><a class="btn btn-gold" href="/contact/">Free Consult</a></div>
 </div></header>
-<section class="pagehero"><div class="wrap">
+<section class="pagehero"><div class="hero-3d-fallback" aria-hidden="true"><i class="hf-ring gold"></i><i class="hf-diamond gold"></i><i class="hf-ring blue"></i><i class="hf-dot"></i><i class="hf-diamond blue"></i><i class="hf-ring gold small"></i><i class="hf-dot gold"></i><i class="hf-diamond white"></i></div><canvas class="hero3d" aria-hidden="true"></canvas><div class="wrap">
 <div class="crumbs"><a href="/">Home</a> / About</div>
 <h1>About JRPMTS LLC</h1>
 <p class="lead">A powerhouse team built from two leading marketing agencies.</p>
@@ -91,10 +92,10 @@
 </div>
 <div class="center reveal" style="margin:56px 0 30px"><p class="eyebrow">Core Values</p><h2>What we stand for</h2></div>
 <div class="grid c4">
-<article class="card tilt reveal"><div class="inner"><img src="/images/innovation.webp" alt="Innovation icon" style="width:64px;height:64px;object-fit:contain"><h3>Innovation</h3><p>We embrace the latest technology and encourage creative thinking to deliver cutting-edge solutions that save time and money.</p></div></article>
-<article class="card tilt reveal"><div class="inner"><img src="/images/integrity.webp" alt="Integrity icon" style="width:64px;height:64px;object-fit:contain"><h3>Integrity</h3><p>We conduct our business with honesty, transparency, and a commitment to ethical practices, ensuring trust and reliability in all our interactions.</p></div></article>
-<article class="card tilt reveal"><div class="inner"><img src="/images/caring-support.webp" alt="Inclusivity and caring icon" style="width:64px;height:64px;object-fit:contain"><h3>Inclusivity and Caring</h3><p>We foster a supportive, inclusive environment where everyone cares for each other and our communities, promoting teamwork and mutual respect.</p></div></article>
-<article class="card tilt reveal"><div class="inner"><img src="/images/customer-service.webp" alt="Customer service excellence icon" style="width:64px;height:64px;object-fit:contain"><h3>Customer Service Excellence</h3><p>We build trust and loyalty with our clients through approachable, down-to-earth service and a commitment to providing speedy, high-quality responses.</p></div></article>
+<article class="card tilt reveal"><div class="inner"><span class="icon-tile"><img src="/images/innovation.webp" alt="Innovation icon"></span><h3>Innovation</h3><p>We embrace the latest technology and encourage creative thinking to deliver cutting-edge solutions that save time and money.</p></div></article>
+<article class="card tilt reveal"><div class="inner"><span class="icon-tile"><img src="/images/integrity.webp" alt="Integrity icon"></span><h3>Integrity</h3><p>We conduct our business with honesty, transparency, and a commitment to ethical practices, ensuring trust and reliability in all our interactions.</p></div></article>
+<article class="card tilt reveal"><div class="inner"><span class="icon-tile"><img src="/images/caring-support.webp" alt="Inclusivity and caring icon"></span><h3>Inclusivity and Caring</h3><p>We foster a supportive, inclusive environment where everyone cares for each other and our communities, promoting teamwork and mutual respect.</p></div></article>
+<article class="card tilt reveal"><div class="inner"><span class="icon-tile"><img src="/images/customer-service.webp" alt="Customer service excellence icon"></span><h3>Customer Service Excellence</h3><p>We build trust and loyalty with our clients through approachable, down-to-earth service and a commitment to providing speedy, high-quality responses.</p></div></article>
 </div>
 </div></section>
 <section class="section"><div class="wrap">

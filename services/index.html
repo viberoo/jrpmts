@@ -29,13 +29,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<script src="/vendor/three.min.js" defer></script>
 <script src="/main.js" defer></script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-<span>📍 901 S Main St Ste 44, Stillwater, OK 74074</span>
-<span><a href="tel:+14057430337">(405) 743-0337</a> &nbsp;·&nbsp; <a href="mailto:info@jrpmts.com">info@jrpmts.com</a></span>
-<span>Mon–Fri 9:00 AM–5:00 PM · Weekends by Appointment</span>
+<span class="tb-addr">📍 901 S Main St Ste 44, Stillwater, OK 74074</span>
+<span class="tb-contact"><a href="tel:+14057430337">(405) 743-0337</a> &nbsp;·&nbsp; <a href="mailto:info@jrpmts.com">info@jrpmts.com</a></span>
+<span class="tb-hours">Mon–Fri 9:00 AM–5:00 PM · Weekends by Appointment</span>
 <span class="social-bar"><span>Follow us:</span><a class="fb" href="https://www.facebook.com/jrpmts" aria-label="JRPMTS on Facebook" target="_blank" rel="noopener">Facebook</a><a class="ig" href="https://www.instagram.com/jrpmts" aria-label="JRPMTS on Instagram" target="_blank" rel="noopener">Instagram</a><a class="li" href="https://www.linkedin.com/company/104409253/" aria-label="JRPMTS on LinkedIn" target="_blank" rel="noopener">LinkedIn</a></span>
 </div></div>
 <header class="site"><div class="navwrap">
@@ -55,7 +56,7 @@
 </nav>
 <div class="nav-cta"><a class="phone" href="tel:+14057430337">(405) 743-0337</a><a class="btn btn-gold" href="/contact/">Free Consult</a></div>
 </div></header>
-<section class="pagehero"><div class="wrap">
+<section class="pagehero"><div class="hero-3d-fallback" aria-hidden="true"><i class="hf-ring gold"></i><i class="hf-diamond gold"></i><i class="hf-ring blue"></i><i class="hf-dot"></i><i class="hf-diamond blue"></i><i class="hf-ring gold small"></i><i class="hf-dot gold"></i><i class="hf-diamond white"></i></div><canvas class="hero3d" aria-hidden="true"></canvas><div class="wrap">
 <div class="crumbs"><a href="/">Home</a> / Services</div>
 <h1>Our Services</h1>
 <p class="lead">Full-service digital marketing, built around your goals.</p>
@@ -70,21 +71,21 @@
 </div>
 <div class="grid c3">
 <article class="card tilt reveal"><div class="inner">
-<div class="thumb"><img src="/images/seo.webp" alt="Search Engine Optimization (SEO)" loading="lazy"></div><h3>Search Engine Optimization (SEO)</h3><p>Boost your website's visibility and climb the search engine rankings with our comprehensive SEO strategies. We'll help you attract more organic traffic and reach customers actively searching for your products or services.</p></div></article>
+<div class="thumb icon"><img src="/images/seo.webp" alt="Search Engine Optimization (SEO)" loading="lazy"></div><h3>Search Engine Optimization (SEO)</h3><p>Boost your website's visibility and climb the search engine rankings with our comprehensive SEO strategies. We'll help you attract more organic traffic and reach customers actively searching for your products or services.</p></div></article>
 <article class="card tilt reveal"><div class="inner">
-<div class="thumb"><img src="/images/social-media.webp" alt="Social Media Marketing" loading="lazy"></div><h3>Social Media Marketing</h3><p>Build your brand's online presence through strategic social media management. We'll help you engage your audience, grow your following, and drive meaningful interactions across all major platforms.</p></div></article>
+<div class="thumb icon"><img src="/images/social-media.webp" alt="Social Media Marketing" loading="lazy"></div><h3>Social Media Marketing</h3><p>Build your brand's online presence through strategic social media management. We'll help you engage your audience, grow your following, and drive meaningful interactions across all major platforms.</p></div></article>
 <article class="card tilt reveal"><div class="inner">
-<div class="thumb"><img src="/images/graphic-design.webp" alt="Graphic Design" loading="lazy"></div><h3>Graphic Design</h3><p>Transform your ideas into visually stunning designs that capture attention and communicate your message effectively. From logos to marketing materials, we create compelling visuals that elevate your brand.</p></div></article>
+<div class="thumb icon"><img src="/images/graphic-design.webp" alt="Graphic Design" loading="lazy"></div><h3>Graphic Design</h3><p>Transform your ideas into visually stunning designs that capture attention and communicate your message effectively. From logos to marketing materials, we create compelling visuals that elevate your brand.</p></div></article>
 <article class="card tilt reveal"><div class="inner">
-<div class="thumb"><img src="/images/business.webp" alt="Branding" loading="lazy"></div><h3>Branding</h3><p>Branding is essential for building a long-lasting, meaningful relationship with your audience, creating trust, and establishing your business's place in the market.</p></div></article>
+<div class="thumb icon"><img src="/images/business.webp" alt="Branding" loading="lazy"></div><h3>Branding</h3><p>Branding is essential for building a long-lasting, meaningful relationship with your audience, creating trust, and establishing your business's place in the market.</p></div></article>
 <article class="card tilt reveal"><div class="inner">
-<div class="thumb"><img src="/images/business.webp" alt="Business Services" loading="lazy"></div><h3>Business Services</h3><p>We provide a variety of services that are useful for any growing business. Boost your visibilty and sales in-store and online. Get started today.</p></div></article>
+<div class="thumb icon"><img src="/images/business.webp" alt="Business Services" loading="lazy"></div><h3>Business Services</h3><p>We provide a variety of services that are useful for any growing business. Boost your visibilty and sales in-store and online. Get started today.</p></div></article>
 <article class="card tilt reveal"><div class="inner">
-<div class="thumb"><img src="/images/photo-video.webp" alt="Photo &amp; Video Services" loading="lazy"></div><h3>Photo &amp; Video Services</h3><p>Let us help highlight and display the professionalism of your business with our custom photo and video services. Put your best face forward.</p></div></article>
+<div class="thumb icon"><img src="/images/photo-video.webp" alt="Photo &amp; Video Services" loading="lazy"></div><h3>Photo &amp; Video Services</h3><p>Let us help highlight and display the professionalism of your business with our custom photo and video services. Put your best face forward.</p></div></article>
 <article class="card tilt reveal"><div class="inner">
-<div class="thumb"><img src="/images/printing.webp" alt="Printing Services" loading="lazy"></div><h3>Printing Services</h3><p>Get your business's face out there! We can help you design and print business cards, brochures, fliers, mailers, and more.</p></div></article>
+<div class="thumb icon"><img src="/images/printing.webp" alt="Printing Services" loading="lazy"></div><h3>Printing Services</h3><p>Get your business's face out there! We can help you design and print business cards, brochures, fliers, mailers, and more.</p></div></article>
 <article class="card tilt reveal"><div class="inner">
-<div class="thumb"><img src="/images/mobile-apps.webp" alt="Mobile Apps" loading="lazy"></div><h3>Mobile Apps</h3><p>Ensures that users have a smooth and intuitive experience on mobile devices such as smartphones and tablets.</p></div></article>
+<div class="thumb icon"><img src="/images/mobile-apps.webp" alt="Mobile Apps" loading="lazy"></div><h3>Mobile Apps</h3><p>Ensures that users have a smooth and intuitive experience on mobile devices such as smartphones and tablets.</p></div></article>
 </div>
 <div class="grid c3" style="margin-top:44px;text-align:center">
 <div class="card reveal"><p style="font-family:var(--font-head);font-size:2.4rem;font-weight:700;color:var(--navy);margin:0">345</p><p>Completed Projects</p></div>
