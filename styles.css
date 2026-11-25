@@ -128,12 +128,9 @@ nav.main a:hover,nav.main a.active{background:var(--sky-soft);color:var(--navy)}
 .card .icon.gold{background:linear-gradient(135deg,#f7c948,var(--gold-deep))}
 .card .thumb{border-radius:14px;overflow:hidden;margin-bottom:16px}
 .card .thumb img{width:100%;height:170px;object-fit:cover}
-/* Icon thumbs: the original service icons are white line art made for dark
-   backgrounds — on a white card they vanish. Give them a navy tile and
-   show the icon contained, never stretched. */
-.card .thumb.icon{background:linear-gradient(135deg,var(--navy),var(--navy-deep))}
-.card .thumb.icon img{object-fit:contain;padding:26px}
-/* Navy tile for white line icons used inline (About values, Web Design). */
+/* Navy tile for white line icons used inline (Services, About values,
+   Web Design). The original icons are white line art made for dark
+   backgrounds — on a white card they vanish, so they sit on navy. */
 .icon-tile{display:inline-flex;align-items:center;justify-content:center;width:84px;height:84px;border-radius:18px;background:linear-gradient(135deg,var(--navy),var(--navy-deep));margin-bottom:14px}
 .icon-tile img{width:56px;height:56px;object-fit:contain}
 .icon-tile.large{display:flex;width:100%;min-height:300px;border-radius:18px;margin-bottom:0}
